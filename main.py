@@ -66,8 +66,8 @@ def countBytes(path):
     return count_bytes
 
 
-path_to_files = []
 def findFilles(target, path):  # Рекурсивная функция, формирующая список пулей к файлам, в имени которых содержится target
+    path_to_files = []
     found_files = 0
     for i in os.listdir(path):
         if target.lower() in i.lower():
