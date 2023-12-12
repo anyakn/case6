@@ -2,6 +2,12 @@ import os
 
 
 def acceptCommand():
+    '''
+    Requests the command number and, if the command number is specified incorrectly,
+    displays an error message. Commands are requested until the
+    correct command number is entered. Returns the correct command number.
+    :return:command
+    '''
     k = 0
     while k == 0:
         command = input('Пожалуйста, введите номер выбранной команды: ')
@@ -66,7 +72,15 @@ def countBytes(path):
     return count_bytes
 
 
-def findFilles(target, path):  # Рекурсивная функция, формирующая список пулей к файлам, в имени которых содержится target
+def findFilles(target, path):
+    '''
+    A recursive function that generates a list of file paths whose name contains target.
+    All subdirectories of the path directory are included in the search. If the files are not found,
+    the corresponding message is displayed.
+    :param target:
+    :param path:
+    :return: path_to_files
+    '''
     path_to_files = []
     found_files = 0
     for i in os.listdir(path):
