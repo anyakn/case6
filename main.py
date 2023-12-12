@@ -121,6 +121,8 @@ def findFiles(target, path):
             if os.path.isdir(path + '\\' + i):
                 findFiles(target, path + '\\' + i)
         return path_to_files
+    else:
+        print(ru.find_f2)
 
 
 def main():
