@@ -77,7 +77,7 @@ def countBytes(path):
     return count_bytes
 
 
-def findFilles(target, path):
+def findFiles(target, path):
     '''
     A recursive function that generates a list of file paths whose name contains target.
     All subdirectories of the path directory are included in the search. If the files are not found,
@@ -96,7 +96,7 @@ def findFilles(target, path):
             if found_files == 0:
                 print('Файлы не найдены')
         if os.path.isdir(path + '\\' + i):
-            findFilles(target, path + '\\' + i)
+            findFiles(target, path + '\\' + i)
     print('Найдено', found_files, 'файлов, содержащих', target)
     return path_to_files
 
