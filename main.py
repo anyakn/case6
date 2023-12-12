@@ -25,7 +25,7 @@ def runCommand(command):
     if command == 2:
         moveUp()
     if command == 3:
-        currentDir = input('Укажите имя подкатолга: ')
+        currentDir = input('Укажите имя подкаталога: ')
         moveDown(currentDir)
     if command == 4:
         path = input('Укажите имя каталога, в котором хотите узнать количество файлов: ')
