@@ -1,7 +1,7 @@
 import os
 def runCommand(command):
     if command == 1:
-        acceptCommand()
+
     elif command == 2:
         moveUp()
     elif command == 3:
@@ -13,7 +13,8 @@ def runCommand(command):
     elif command == 6:
         findFiles(target, path)
     elif command == 7:
-        print()
+        print('Работа программы завершена.')
+        break
     else:
         print('Недопустимый номер команды')
 
@@ -24,6 +25,13 @@ def moveUp():
 
 def countFiles(path):
     file_count = 0
+
     for root, dirs, files in os.walk(path):
         file_count += len(files)
+
     return file_count
+
+'''
+Функция chdir() модуля os изменяет текущий рабочий каталог. 
+Аргумент path может принимать объекты, представляющие путь файловой системы
+'''
