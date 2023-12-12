@@ -48,7 +48,7 @@ def runCommand(command):
 
 def moveUp():
     '''
-    The function makes the current parent directory/
+    The function makes the current parent directory.
     :return: None
     '''
     os.chdir('..')
