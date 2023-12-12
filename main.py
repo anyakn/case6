@@ -10,6 +10,7 @@ def acceptCommand():
         else:
            k += 1
 
+
 def runCommand(command):
     if command == 1:
         return 0
