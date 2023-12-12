@@ -31,8 +31,8 @@ def runCommand(command):
         path = input('Укажите имя каталога, в котором хотите узнать количество файлов: ')
         countFiles(path)
     if command == 5:
-        path = input('Укажите имя каталога, в котором хотите узнать суммарный объем файлов: ')
-        countBytes(path)
+        path = os.getcwd()
+        print(countBytes(path))
     if command == 6:
         target = input('Укажите ключевое слово для поиска файлов с данным словом: ')
         path = input('Укажите имя каталога, в котором хотите осуществить поиск: ')
@@ -46,9 +46,7 @@ def moveUp():
 
 
 def moveDown(currentDir):
-    os.chdir(currentDir)
-    nextdir = input('Введите имя подкаталога: ')
-    go_to = currentDir + '\\' + nextdir
+    go_to = os.getcwd() + '\\' + currentDir
     if os.path.isdir(go_to):
         os.chdir(go_to)
     else:
@@ -86,19 +84,20 @@ def findFiles(target, path):
     :param path:
     :return: path_to_files
     '''
-    path_to_files = []
-    found_files = 0
-    for i in os.listdir(path):
-        if target.lower() in i.lower():
-            found_files += 1
-            path_to_files.append(path + '\\' + i)
-            print(i)
-            if found_files == 0:
-                print('Файлы не найдены')
-        if os.path.isdir(path + '\\' + i):
-            findFiles(target, path + '\\' + i)
-    print('Найдено', found_files, 'файлов, содержащих', target)
-    return path_to_files
+    if os.path.isdir(path):
+        path_to_files = []
+        found_files = 0
+        for i in os.listdir(path):
+            if target.lower() in i.lower():
+                found_files += 1
+                path_to_files.append(path + '\\' + i)
+                print(i)
+                if found_files == 0:
+                    print('Файлы не найдены')
+            if os.path.isdir(path + '\\' + i):
+                findFiles(target, path + '\\' + i)
+        print('Найдено', found_files, 'файлов, содержащих', target)
+        return path_to_files
 
 
 def main():
