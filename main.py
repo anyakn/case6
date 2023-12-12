@@ -33,7 +33,7 @@ def runCommand(command):
     elif command == 6:
         findFiles(target, path)
     elif command == 7:
-         return 'Работа программы завершена.'
+        return 'Работа программы завершена.'
 
 
 def moveUp():
@@ -99,19 +99,18 @@ def findFilles(target, path):
 def main():
     while True:
         print(os.getcwd())
-        print('''1. Просмотр каталога
-        2. На уровень вверх
-        3. На уровень вниз
-        4. Количество файлов и каталогов
-        5. Размер текущего каталога (в байтах)
-        6. Поиск файла
-        7. Выход из программы''')
+        print('1. Просмотр каталога', '2. На уровень вверх', '3. На уровень вниз',
+              '4. Количество файлов и каталогов', '5. Размер текущего каталога (в байтах)',
+              '6. Поиск файла', '7. Выход из программы', sep='\n')
 
         command = acceptCommand()
         runCommand(command)
         if command == 7:
             print('Работа программы завершена.')
-            break
+            return False
 
     if __name__ == '__main__':
         main()
+
+
+main()
