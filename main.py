@@ -89,6 +89,7 @@ def countFiles(path):
                 count_files += countFiles(new_path)
         return count_files
     else:
+        count_files = 0
         print(ru.find_f2)
 
 
