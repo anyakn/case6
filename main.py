@@ -79,8 +79,8 @@ def countFiles(path):
     :param path: the path of the directory in which the user wants to count the number of files.
     :return: count_files
     '''
+    count_files = 0
     if os.path.isdir(path):
-        count_files = 0
         for i in os.listdir(path):
             new_path = os.getcwd() + '\\' + i
             if os.path.isfile(new_path):
@@ -89,7 +89,6 @@ def countFiles(path):
                 count_files += countFiles(new_path)
         return count_files
     else:
-        count_files = 0
         print(ru.find_f2)
 
 

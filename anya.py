@@ -46,3 +46,18 @@ def main():
 
     if __name__ == '__main__':
         main()
+
+
+def countFiles(path):
+    count_files = 0
+
+    for i in os.listdir(path):
+        new_path = os.getcwd() + '\\' + i
+        if os.path.isfile(new_path):
+            count_files += 1
+        if os.path.isdir(path):
+            count_files += countFiles(new_path)
+
+    return count_files
+
+countFiles('C:\Users\annil\OneDrive\Рабочий стол\history')
