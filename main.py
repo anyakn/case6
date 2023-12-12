@@ -1,5 +1,6 @@
 import os
 
+
 def acceptCommand():
     k = 0
     while k == 0:
@@ -11,7 +12,7 @@ def acceptCommand():
 
 def runCommand(command):
     if command == 1:
-
+        return 0
     elif command == 2:
         moveUp()
     elif command == 3:
@@ -23,13 +24,12 @@ def runCommand(command):
     elif command == 6:
         findFiles(target, path)
     elif command == 7:
-        print('Работа программы завершена.')
-        break
-    else:
-        print('Недопустимый номер команды')
+         return 'Работа программы завершена.'
+
 
 def moveUp():
     os.chdir('..')
+
 
 def moveDown(currentDir):
     os.chdir(currentDir)
@@ -40,6 +40,7 @@ def moveDown(currentDir):
     else:
         print('Ошибка! Такого пути не существует!')
 
+
 def countFiles(path):
     file_count = 0
 
@@ -47,6 +48,7 @@ def countFiles(path):
         file_count += len(files)
 
     return file_count
+
 
 def countBytes(path):
     count_bytes = 0
