@@ -1,5 +1,5 @@
 import os
-
+import ru_local as ru
 
 def acceptCommand():
     '''
@@ -10,9 +10,9 @@ def acceptCommand():
     '''
     k = 0
     while k == 0:
-        command = input('Пожалуйста, введите номер выбранной команды: ')
+        command = input(ru.accept_с1)
         if command not in ['1', '2', '3', '4', '5', '6', '7']:
-            print('Ошибка ввода!')
+            print(ru.accept_с2)
         else:
             k += 1
             command = int(command)
@@ -26,25 +26,25 @@ def runCommand(command):
     :return: None
     '''
     if command == 1:
-        path = input('Укажите имя каталога для просмотра его содержимого: ')
+        path = input(ru.run_c1)
         directory_content(path)
     if command == 2:
         moveUp()
     if command == 3:
-        currentDir = input('Укажите имя подкаталога: ')
+        currentDir = input(ru.run_c2)
         moveDown(currentDir)
     if command == 4:
-        path = input('Укажите имя каталога, в котором хотите узнать количество файлов: ')
+        path = input(ru.run_c3)
         countFiles(path)
     if command == 5:
         path = os.getcwd()
         print(countBytes(path))
     if command == 6:
-        target = input('Укажите ключевое слово для поиска файлов с данным словом: ')
-        path = input('Укажите имя каталога, в котором хотите осуществить поиск: ')
+        target = input(ru.run_c4)
+        path = input(ru.run_c5)
         print(findFiles(target, path))
     if command == 7:
-        return 'Работа программы завершена.'
+        return ru.run_c6
 
 def directory_content(path):
     '''
@@ -69,7 +69,7 @@ def moveDown(currentDir):
     if os.path.isdir(go_to):
         os.chdir(go_to)
     else:
-        print('Ошибка! Такого пути не существует!')
+        print(ru.move_d1)
 
 
 def countFiles(path):
@@ -117,7 +117,7 @@ def findFiles(target, path):
                 found_files += 1
                 path_to_files.append(path + '\\' + i)
                 if found_files == 0:
-                    print('Файлы не найдены')
+                    print(ru.find_f1)
             if os.path.isdir(path + '\\' + i):
                 findFiles(target, path + '\\' + i)
         return path_to_files
@@ -126,14 +126,11 @@ def findFiles(target, path):
 def main():
     while True:
         print(os.getcwd())
-        print('1. Просмотр каталога', '2. На уровень вверх', '3. На уровень вниз',
-              '4. Количество файлов и каталогов', '5. Размер текущего каталога (в байтах)',
-              '6. Поиск файла', '7. Выход из программы', sep='\n')
-
+        print(ru.main1, ru.main2, ru.main3, ru.main4, ru.main5, ru.main6, ru.main7, sep='\n')
         command = acceptCommand()
         runCommand(command)
         if command == 7:
-            print('Работа программы завершена.')
+            print(ru.main8)
             return False
 
     if __name__ == '__main__':
