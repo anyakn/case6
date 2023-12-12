@@ -20,12 +20,17 @@ def acceptCommand():
 
 
 def runCommand(command):
+    '''
+    Determines by the command number 'command' which function should be performed.
+    :param command: the user enters the number of the command that is wanted to be performed.
+    :return: None
+    '''
     if command == 1:
         return 0
     if command == 2:
         moveUp()
     if command == 3:
-        currentDir = input('Укажите имя подкатолга: ')
+        currentDir = input('Укажите имя подкаталога: ')
         moveDown(currentDir)
     if command == 4:
         path = input('Укажите имя каталога, в котором хотите узнать количество файлов: ')
@@ -42,6 +47,10 @@ def runCommand(command):
 
 
 def moveUp():
+    '''
+    The function makes the current parent directory/
+    :return: None
+    '''
     os.chdir('..')
 
 
@@ -54,6 +63,12 @@ def moveDown(currentDir):
 
 
 def countFiles(path):
+    '''
+    A recursive function that counts the number of files in the specified path directory. All
+    files located in subdirectories are included in the calculation.
+    :param path: the path of the directory in which the user wants to count the number of files.
+    :return: file_count
+    '''
     file_count = 0
 
     for root, dirs, files in os.walk(path):
