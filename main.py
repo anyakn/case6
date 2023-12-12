@@ -77,14 +77,19 @@ def countFiles(path):
     A recursive function that counts the number of files in the specified path directory. All
     files located in subdirectories are included in the calculation.
     :param path: the path of the directory in which the user wants to count the number of files.
-    :return: file_count
+    :return: count_files
     '''
-    file_count = 0
-
-    for root, dirs, files in os.walk(path):
-        file_count += len(files)
-
-    return file_count
+    if os.path.isdir(path):
+        count_files = 0
+        for i in os.listdir(path):
+            new_path = os.getcwd() + '\\' + i
+            if os.path.isfile(new_path):
+                count_files += 1
+                if os.path.isdir(path):
+                    count_files += countFiles(new_path)
+        return count_files
+    else:
+        print(ru.find_f2)
 
 
 def countBytes(path):
@@ -134,9 +139,6 @@ def main():
         if command == 7:
             print(ru.main8)
             return False
-
-    if __name__ == '__main__':
-        main()
 
 
 main()
