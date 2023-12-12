@@ -35,7 +35,7 @@ def runCommand(command):
         moveDown(currentDir)
     if command == 4:
         path = input(ru.run_c3)
-        countFiles(path)
+        print(countFiles(path))
     if command == 5:
         path = os.getcwd()
         print(countBytes(path))
@@ -88,6 +88,7 @@ def countFiles(path):
                 if os.path.isdir(path):
                     count_files += countFiles(new_path)
         return count_files
+
     else:
         print(ru.find_f2)
 
