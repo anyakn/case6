@@ -36,7 +36,7 @@ def runCommand(command):
     if command == 6:
         target = input('Укажите ключевое слово для поиска файлов с данным словом: ')
         path = input('Укажите имя каталога, в котором хотите осуществить поиск: ')
-        findFiles(target, path)
+        print(findFiles(target, path))
     if command == 7:
         return 'Работа программы завершена.'
 
@@ -91,12 +91,10 @@ def findFiles(target, path):
             if target.lower() in i.lower():
                 found_files += 1
                 path_to_files.append(path + '\\' + i)
-                print(i)
                 if found_files == 0:
                     print('Файлы не найдены')
             if os.path.isdir(path + '\\' + i):
                 findFiles(target, path + '\\' + i)
-        print('Найдено', found_files, 'файлов, содержащих', target)
         return path_to_files
 
 
