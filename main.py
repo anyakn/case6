@@ -22,17 +22,22 @@ def acceptCommand():
 def runCommand(command):
     if command == 1:
         return 0
-    elif command == 2:
+    if command == 2:
         moveUp()
-    elif command == 3:
+    if command == 3:
+        currentDir = input('Укажите имя подкатолга: ')
         moveDown(currentDir)
-    elif command == 4:
+    if command == 4:
+        path = input('Укажите имя каталога, в котором хотите узнать количество файлов: ')
         countFiles(path)
-    elif command == 5:
+    if command == 5:
+        path = input('Укажите имя каталога, в котором хотите узнать суммарный объем файлов: ')
         countBytes(path)
-    elif command == 6:
+    if command == 6:
+        target = input('Укажите ключевое слово для поиска файлов с данным словом: ')
+        path = input('Укажите имя каталога, в котором хотите осуществить поиск: ')
         findFiles(target, path)
-    elif command == 7:
+    if command == 7:
         return 'Работа программы завершена.'
 
 
