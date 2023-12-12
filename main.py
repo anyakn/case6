@@ -26,7 +26,8 @@ def runCommand(command):
     :return: None
     '''
     if command == 1:
-        return 0
+        path = input('Укажите имя каталога для просмотра его содержимого: ')
+        directory_content(path)
     if command == 2:
         moveUp()
     if command == 3:
@@ -45,6 +46,15 @@ def runCommand(command):
     if command == 7:
         return 'Работа программы завершена.'
 
+def directory_content(path):
+    '''
+    The function of observing the content of the directory.
+    :param path: the path of the directory in which the user wants to observe its content
+    (subdirectories, files).
+    :return: None
+    '''
+    for item in os.listdir(path):
+        print(item)
 
 def moveUp():
     '''
