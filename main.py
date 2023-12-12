@@ -85,10 +85,9 @@ def countFiles(path):
             new_path = os.getcwd() + '\\' + i
             if os.path.isfile(new_path):
                 count_files += 1
-                if os.path.isdir(path):
-                    count_files += countFiles(new_path)
+            if os.path.isdir(path):
+                count_files += countFiles(new_path)
         return count_files
-
     else:
         print(ru.find_f2)
 
