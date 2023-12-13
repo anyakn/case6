@@ -24,7 +24,7 @@ def runCommand(command):
     '''
     Determines by the command number 'command' which function should be performed.
     :param command: the user enters the number of the command that is wanted to be performed.
-    :return: None
+    :return:
     '''
     if command == 1:
         path = input(ru.run_c1)
@@ -87,17 +87,12 @@ def countFiles(path):
     :param path: the path of the directory in which the user wants to count the number of files.
     :return: count_files
     '''
-    count_files = 0
+    file_count = 0
     if os.path.isdir(path):
-        for i in os.listdir(path):
-            new_path = os.getcwd() + '\\' + i
-            if os.path.isfile(new_path):
-                count_files = count_files + 1
-            if os.path.isdir(new_path):
-                count_files = count_files + countFiles(new_path)
-        return count_files
-    else:
-        print(ru.find_f2)
+        for root, dirs, files in os.walk(path):
+            file_count += len(files)
+        return file_count
+    print(ru.find_f2)
 
 
 def countBytes(path):

@@ -1,10 +1,7 @@
 import os
+'''''
 def runCommand(command):
-    '''
-    Determines by the command number 'command' which function should be performed.
-    :param command: the user enters the number of the command that is wanted to be performed.
-    :return: None
-    '''
+
     if command == 1:
 
     elif command == 2:
@@ -26,11 +23,9 @@ def runCommand(command):
 
 
 def moveUp():
-    '''
-    The function makes the current parent directory/
-    :return: None
-    '''
     os.chdir('..')
+'''''
+
 
 def countFiles(path):
     '''
@@ -41,11 +36,13 @@ def countFiles(path):
     '''
     file_count = 0
 
-    for files in os.walk(path):
+    for root, dirs, files in os.walk(path):
         file_count += len(files)
 
     return file_count
 
+path = input('Введи: ')
+print(countFiles(path))
 '''
 Функция chdir() модуля os изменяет текущий рабочий каталог. 
 Аргумент path может принимать объекты, представляющие путь файловой системы
