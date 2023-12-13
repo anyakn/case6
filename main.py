@@ -1,6 +1,7 @@
 import os
 import ru_local as ru
 
+
 def acceptCommand():
     '''
     Requests the command number and, if the command number is specified incorrectly,
@@ -65,6 +66,13 @@ def moveUp():
 
 
 def moveDown(currentDir):
+    '''
+    Prompts for the name of a subdirectory.
+    If the name is specified correctly, it makes the directory located in currentDir current,
+    otherwise it displays an error message
+    :param currentDir: new directory
+    :return: None
+    '''
     go_to = os.getcwd() + '\\' + currentDir
     if os.path.isdir(go_to):
         os.chdir(go_to)
@@ -84,15 +92,21 @@ def countFiles(path):
         for i in os.listdir(path):
             new_path = os.getcwd() + '\\' + i
             if os.path.isfile(new_path):
-                count_files += 1
+                count_files = count_files + 1
             if os.path.isdir(new_path):
-                count_files += countFiles(new_path)
+                count_files = count_files + countFiles(new_path)
         return count_files
     else:
         print(ru.find_f2)
 
 
 def countBytes(path):
+    '''
+    A recursive function that calculates the total size (in bytes) of all files in the specified directory path.
+    The count includes all files located in subdirectories. Returns the total number of bytes.
+    :param path: name of the directory
+    :return: count_bytes
+    '''
     count_bytes = 0
 
     for i in os.listdir(path):
