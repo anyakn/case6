@@ -47,6 +47,7 @@ def runCommand(command):
     if command == 7:
         return ru.run_c6
 
+
 def directory_content(path):
     '''
     The function of observing the content of the directory.
